@@ -1,5 +1,4 @@
-## Pencil Kata
-#### TDD exercise
+#### TDD exercise template
 
 You need [node](https://nodejs.org/en/) installed to run this. See node notes below for some more info.
 
@@ -8,8 +7,7 @@ You need [node](https://nodejs.org/en/) installed to run this. See node notes be
 ### Setup:
 Clone and install from your chosen parent directory:
 
-`git clone https://github.com/NicholasJV/pencil-writer-kata.git`
-
+Don't forget to
 `npm install`
 
 (Note: I used [yarn](https://yarnpkg.com/en/), a great alternative to npm that uses the same npm registry but uses a more deterministic install process -- that's why there is a `yarn.lock` file in the project. The equivalent to `npm install` is simply `yarn`)
