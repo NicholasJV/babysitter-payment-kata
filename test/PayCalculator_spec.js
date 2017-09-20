@@ -7,4 +7,13 @@ describe("Pay Calculator", function() {
     it("should automatically differentate pay rate for after bedtime", function(){
         expect(CalculatePayment('5:00', '8:00', '10:00')).toBe(52);
     })
-  });
+
+    it("should automatically differentate pay rate for after midnight", function(){
+        expect(CalculatePayment('12:00', '12:00', '2:00')).toBe(32);
+    })
+    
+    xit("should automatically differentate pay rate for after midnight", function(){
+        expect(CalculatePayment('5:00', '10:00', '2:00')).toBe(108);
+    })
+
+});
