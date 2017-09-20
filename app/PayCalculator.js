@@ -1,5 +1,8 @@
 function CalculatePayment(startTime, endTime) {
     var rate = 12;
-    var totalTime = startTime - endTime;
+    startTime = startTime.split(':');
+    endTime = endTime.split(':');
+
+    var totalTime = endTime[0] - startTime[0];
     return totalTime * rate;
 }
