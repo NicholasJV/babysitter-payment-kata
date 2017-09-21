@@ -3,26 +3,26 @@ function CalculatePayment(startTime, bedTime, endTime) {
     var postBedTimeRate = 8;
     var postMidnightRate = 16
 
-    startTime = startTime.split(':');
-    bedTime = bedTime.split(':');
-    endTime = endTime.split(':');
+    startTime = startTime.split(':')[0];
+    bedTime = bedTime.split(':')[0];
+    endTime = endTime.split(':')[0];
     
     var preBedTimeHours = 0
-    if (bedTime[0] !== startTime[0]) {
-        var preBedTimeHours = bedTime[0] - startTime[0];
+    if (bedTime !== startTime) {
+        var preBedTimeHours = bedTime - startTime;
     } 
 
     var postBedTimeHours = 0
-    if (bedTime[0] < endTime[0]) {
+    if (bedTime < endTime) {
 
-        postBedTimeHours = 12 - bedTime[0];
-    } else if (endTime[0] < 12) {
-        postBedTimeHours = endTime[0] - bedTime[0];
+        postBedTimeHours = 12 - bedTime;
+    } else if (endTime < 12) {
+        postBedTimeHours = endTime - bedTime;
     }
 
     var postMidnightHours = 0
-    if (endTime[0] < 5) {
-        postMidnightHours = endTime[0] 
+    if (endTime < 5) {
+        postMidnightHours = endTime 
     } 
 
     var preBedTimePay = preBedTimeHours * baseRate; // 60
