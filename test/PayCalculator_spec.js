@@ -20,18 +20,27 @@ describe("Pay Calculator", function() {
         expect(CalculatePayment('5:00', '10:00', '2:00')).toBe(108);
     })
 
-    xit("should round up on higher pay rate hours", function(){
-        expect(Rounder());
+    it("should round up on pre-bedtime hours", function(){
+        var time = {
+            startTimeHour: 0, startTimeMinutes: 0,
+            bedTimeHour: 3, bedTimeMinutes: 45,
+            endTimeHour: 3, endTimeMinutes: 45
+        }
+        
+        expect(rounder(time)).toEqual({ 
+            startTimeHour: 0, startTimeMinutes: 0,
+            bedTimeHour: 4, bedTimeMinutes: 0,
+            endTimeHour: 4, endTimeMinutes: 0
+        });
+
+        expect(CalculatePayment('5:00', '8:45', '8:45')).toBe(48);
     })
 
     it("should create a time object with all times stored within", function(){
         expect(timeFormatter('5:00', '10:00', '2:00')).toEqual({
-            startTimeHour: 0,
-            startTimeMinutes: 0,
-            bedTimeHour: 5,
-            bedTimeMinutes: 0,
-            endTimeHour: 9,
-            endTimeMinutes: 0
+            startTimeHour: 0, startTimeMinutes: 0, 
+            bedTimeHour: 5, bedTimeMinutes: 0, 
+            endTimeHour: 9, endTimeMinutes: 0
         })
     })
 

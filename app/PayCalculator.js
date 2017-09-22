@@ -26,6 +26,8 @@ function timeFormatter(startTime, bedTime, endTime){
         endTimeMinutes: Number(endTime[1])
     }
 
+    time = rounder(time)
+
     if(time.endTimeHour <= 12 && time.endTimeHour <= 5){
         time.endTimeHour = time.endTimeHour + 7
     } else time.endTimeHour = time.endTimeHour - 5
@@ -35,6 +37,18 @@ function timeFormatter(startTime, bedTime, endTime){
 
     // console.log(time)
     return time;
+}
+
+function rounder(time){
+    if (time.bedTimeMinutes >= 15) {
+        time.bedTimeHour += 1
+        time.bedTimeMinutes = 0
+    }
+    if (time.endTimeMinutes >= 15) {
+        time.endTimeHour += 1
+        time.endTimeMinutes = 0
+    }
+    return time
 }
 
 function getPreBedTimeHours(time){
@@ -69,6 +83,3 @@ function getPostMidnightHours(time){
     } else return 0
 }
 
-function rounder(){
-
-}
