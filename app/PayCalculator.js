@@ -48,6 +48,15 @@ function rounder(time){
         time.endTimeHour += 1
         time.endTimeMinutes = 0
     }
+    if (time.startTimeHour === 0 && time.startTimeMinutes < 45) {
+        time.startTimeMinutes = 0
+    } else if (time.startTimeMinutes < 45 && time.startTimeMinutes !== 0) {
+        time.startTimeHour -= 1
+        time.startTimeMinutes = 0
+    } else if (time.startTimeMinutes >= 45) { 
+        time.startTimeHour += 1
+        time.startTimeMinutes = 0
+    }
     return time
 }
 
